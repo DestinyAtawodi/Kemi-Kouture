@@ -5,7 +5,7 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <BrowserRouter basename="/Kemi-Kouture">
+    <BrowserRouter basename="/Kemi-Kouture/">
         <App />
     </BrowserRouter>
 )
