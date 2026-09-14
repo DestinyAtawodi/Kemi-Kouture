@@ -1,49 +1,94 @@
-import React from 'react'
 import Nav from '../components/Nav'
 import CEOImg from '../assets/a2e4a3de-18bc-41df-81d0-913c6744b716.png'
-import  Logo  from '../assets/54a9154a-bf29-4985-8a88-b2605e6cb5a6.JPG'
-import AboutBg from '../assets/happy-young-woman-posing-with-shopping-bags-isolated-pink-wall.jpeg'
 import Footer from '../components/Footer'
-import { FaAddressCard, FaInfoCircle } from 'react-icons/fa'
+import { FaAddressCard, FaBullseye } from 'react-icons/fa'
 import { motion } from 'motion/react'
 
 const About = () => {
   return (
-    <div  >
+    <div className="bg-white">
       <Nav />
 
+      {/* Hero Section - About */}
+      <section className="pt-32 pb-20 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full md:w-1/2"
+            >
+              <div className="relative group">
+                <div className="absolute inset-0 bg-brand-pink/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+                <img 
+                  src={CEOImg} 
+                  alt="Kemi Kouture CEO" 
+                  className="relative z-10 w-full h-auto rounded-2xl shadow-2xl object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" 
+                />
+              </div>
+            </motion.div>
 
-        <div className=' items-center justify-center text-white flex flex-row'>
-          <img src={CEOImg} alt="About Us" className='h-auto mt-8 w-1/2 hidden md:block' />
-          
-        <div className='w-1/2 h-auto m-20'>
-        <h1 className='text-4xl font-bold text-center mt-10 text-transform uppercase'> <span className='text-transparent bg-gradient-to-r from-pink-200 to-white bg-clip-text'>About</span> Us</h1>
-        <motion.p 
-        initial = {{ opacity: 0}}
-        whileInView= {{ opacity: 1}}
-        transition={{ duration: 2 }}
-
-        className='text-center mt-4 text-lg'>Kemi kouture is a marketing brand aimed at supplying the best thrift female clothings and fashion items at affordable prices. Founded by Adelunsi Folakemi, kemi kouture has grown to become a leading name in many universities, known for its commitment to quality and affordability.</motion.p>
-        </div>
-
-        </div>
-
-        <div className='flex flex-row bg-gray-300 mt--50 p-8 rounded-lg shadow-xl'>
-          
-          <div 
-             className='w-1/2 p-4'>
-            <h2 className='text-2xl font-bold mb-4 flex flex-row gap-2'>Our CEO <FaAddressCard className='mt-1 text-gray-600' /> </h2>
-            <p className='text-lg'>Meet our visionary CEO, Adelunsi Folakemi, who is the driving force behind Kemi Kouture's success. With a passion and  deep understanding of Enterpreneurship, Our CEO has been instrumental in shaping our company's vision and mission. Under their leadership, Kemi Kouture has become a leading name in many universities for afforadable womens wear, known for fast customer care services, quick deliveries  and commitment to excellence. Adelunsi Folakemi's dedication to ensuring customers satisfication with our services is at the heart of everything we do at Kemi Kouture.</p>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full md:w-1/2"
+            >
+              <h1 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter">
+                ABOUT <span className="text-gradient">US</span>
+              </h1>
+              <div className="w-20 h-1.5 bg-brand-pink mb-8 rounded-full"></div>
+              
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 font-medium">
+                Kemi Kouture is a premier fashion brand dedicated to providing high-quality thrift and new female apparel at prices that empower.
+              </p>
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Founded by <span className="font-bold text-gray-800">Adelunsi Folakemi</span>, our brand has evolved from a passion project into a leading fashion destination across Nigerian universities. We are built on the commitment to making style accessible without compromising on quality or authenticity.
+              </p>
+            </motion.div>
           </div>
-          
-          <div className='w-1/2 p-4'>
-            <h2 className='text-2xl font-bold mb-4 flex flex-row gap-2'>Our Mission <FaInfoCircle className='mt-1 text-gray-600' /> </h2>
-            <p className='text-lg'>At Kemi Kolture, our mission is to deliver the best handpicked thrift & new fashion items worldwide, ensuring quality and style for every customer.</p>
-          </div>
-
         </div>
+      </section>
 
-        <Footer />
+      {/* CEO & Mission Cards */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="glass p-10 rounded-3xl shadow-xl border border-white/50"
+            >
+              <div className="w-14 h-14 bg-brand-pink/10 rounded-2xl flex items-center justify-center mb-6">
+                <FaAddressCard className="text-brand-pink text-2xl" />
+              </div>
+              <h2 className="text-2xl font-black mb-4 uppercase tracking-tight text-gray-800">Our Visionary CEO</h2>
+              <p className="text-gray-600 leading-relaxed">
+                Meet <span className="font-bold text-brand-pink">Adelunsi Folakemi</span>, the creative force behind Kemi Kouture's success. With a deep passion for entrepreneurship and an eye for timeless style, she has shaped our mission to redefine campus fashion. Under her leadership, Kemi Kouture has become synonymous with quality, fast delivery, and exceptional customer service.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="glass p-10 rounded-3xl shadow-xl border border-white/50"
+            >
+              <div className="w-14 h-14 bg-brand-pink/10 rounded-2xl flex items-center justify-center mb-6">
+                <FaBullseye className="text-brand-pink text-2xl" />
+              </div>
+              <h2 className="text-2xl font-black mb-4 uppercase tracking-tight text-gray-800">Our Mission</h2>
+              <p className="text-gray-600 leading-relaxed">
+                At Kemi Kouture, our mission is to deliver handpicked, premium thrift and new fashion items to women worldwide. we believe that every woman deserves to feel beautiful and confident, which is why we meticulously source each item to ensure it meets our high standards of quality and style.
+              </p>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   )
 }

@@ -1,80 +1,163 @@
-import React from 'react'
-import { motion } from 'motion/react'
-import { FaHome, FaPhone, FaBars} from 'react-icons/fa';
-import { useState } from 'react';
-import  Logo  from '../assets/54a9154a-bf29-4985-8a88-b2605e6cb5a6.JPG'
-import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react'
+import { FaBars, FaTimes, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import Logo from '../assets/54a9154a-bf29-4985-8a88-b2605e6cb5a6.JPG'
+import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
-     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    
-      const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-    
-  return (
-  
-    <motion.div
-      initial={{ opacity: 0, translateY: -20 }}
-      animate={{ opacity: 1, translateY: 0 }}
-      exit={{ opacity: 0 }}
-      duration={2}
-    >
-       
-      <nav className=" bg-gray-200  text-pink-300 h-16 flex items-center justify-between px-4 shadow-md">
-              <img src={Logo} className="h-12 w-12 rounded-full" />
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
-       <ul className="hidden  md:flex space-x-4 font-bold text-transform uppercase">
-          <li className="hover:text-pink-400 transition-colors transform hover:scale-110 duration-1000"><Link to="/">Home</Link></li>
-          <li className="hover:text-pink-400 transition-colors transform hover:scale-110 duration-1000"><Link to="/about">About</Link></li>
-          <li className="hover:text-pink-400 transition-colors transform hover:scale-110 duration-1000"><Link to="/contact">Contact</Link></li>
-          <li className="hover:text-pink-400 transition-colors transform hover:scale-110 duration-1000"><Link to="/events">Events</Link></li>
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [location])
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Events', path: '/events' },
+    { name: 'Contact', path: '/contact' },
+  ]
+
+  const isActive = (path) => location.pathname === path
+
+  return (
+    <div className="fixed top-0 left-0 w-full z-50">
+      {/* Announcement Bar */}
+      <div className="bg-brand-pink text-white py-2 px-4 text-center text-xs md:text-sm font-medium tracking-wide">
+        <p className="flex items-center justify-center gap-4">
+          <span>🛍️ Handpicked Thrift & New Fashion</span>
+          <span className="hidden md:inline">|</span>
+          <span>📍 Worldwide Delivery</span>
+          <span className="hidden md:inline">|</span>
+          <span className="font-bold">+2349016736464</span>
+        </p>
+      </div>
+
+      {/* Main Navigation */}
+      <nav className={`transition-all duration-300 px-4 md:px-8 ${
+        scrolled ? 'h-16 glass shadow-lg' : 'h-20 bg-white/90'
+      } flex items-center justify-between`}>
+        
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src={Logo} 
+            className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-brand-pink/20 group-hover:border-brand-pink transition-colors duration-300" 
+            alt="Kemi Kouture Logo"
+          />
+          <span className="text-xl font-bold tracking-tight text-gray-800 hidden sm:block">
+            KEMI <span className="text-brand-pink">KOUTURE</span>
+          </span>
+        </Link>
+
+        {/* Desktop Links */}
+        <ul className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link 
+                to={link.path}
+                className={`nav-link font-semibold uppercase text-sm tracking-widest ${
+                  isActive(link.path) ? 'text-brand-pink nav-link-active' : 'text-gray-600'
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-         
+        {/* Socials / Action */}
+        <div className="hidden md:flex items-center gap-4">
+          <a href="https://www.instagram.com/kemikouture24" className="text-gray-500 hover:text-brand-pink transition-colors">
+            <FaInstagram size={20} />
+          </a>
+          <a href="https://www.tiktok.com/@kemi_kouture1" className="text-gray-500 hover:text-brand-pink transition-colors">
+            <FaTiktok size={20} />
+          </a>
+        </div>
 
-        <FaBars 
-        onClick={toggleMenu}
-        className="text-2xl cursor-pointer hover:text-pink-400 transition-colors md:hidden" />
+        {/* Mobile Toggle */}
+        <button 
+          onClick={toggleMenu}
+          className="md:hidden p-2 text-gray-600 hover:text-brand-pink transition-colors"
+          aria-label="Toggle Menu"
+        >
+          <FaBars size={24} />
+        </button>
       </nav>
 
-   
-      <motion.div
-        initial={{ x: '100%' }}
-        animate={{ x: isMenuOpen ? 0 : '100%' }}
-        transition={{ duration: 0.3 }}
-        className="fixed right-0 top-0 h-screen w-64 bg-gray-500 text-white shadow-lg z-50"
-      >
-        <div className="p-6">
-          <button
-            onClick={toggleMenu}
-            className="absolute top-4 right-4 text-2xl hover:text-pink-300"
-          >
-            ✕
-          </button>
-          <h2 className="text-2xl font-bold mt-8 mb-6">Menu</h2>
-          <ul className="space-y-4">
-            <li><Link to="/" className="hover:text-pink-300">Home</Link></li>
-            <li><Link to="/about" className="hover:text-pink-300">About</Link></li>
-            <li><Link to="/contact" className="hover:text-pink-300">Contact</Link></li>
-            <li><Link to="/events" className="hover:text-pink-300">Events</Link></li>
-          </ul>
-        </div>
-      </motion.div>
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={toggleMenu}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 h-full w-[80%] max-w-sm bg-white z-[70] shadow-2xl p-8 flex flex-col"
+            >
+              <button
+                onClick={toggleMenu}
+                className="self-end p-2 text-gray-500 hover:text-brand-pink transition-colors mb-8"
+              >
+                <FaTimes size={28} />
+              </button>
 
-    
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={toggleMenu}
-          className="fixed inset-0  bg-opacity-50 z-40"
-        />
-      )}
+              <div className="mb-12">
+                <img src={Logo} className="h-16 w-16 rounded-full mb-4 mx-auto" alt="Logo" />
+                <h2 className="text-2xl font-bold text-center text-gray-800">
+                  KEMI <span className="text-brand-pink">KOUTURE</span>
+                </h2>
+              </div>
 
+              <ul className="space-y-6 flex-grow">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path}
+                      className={`block text-xl font-bold uppercase tracking-widest ${
+                        isActive(link.path) ? 'text-brand-pink' : 'text-gray-700'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-
-    </motion.div>
- 
+              <div className="pt-8 border-t border-gray-100 flex justify-center gap-6">
+                 <a href="https://www.instagram.com/kemikouture24" className="text-gray-400 hover:text-brand-pink">
+                    <FaInstagram size={24} />
+                  </a>
+                  <a href="https://www.tiktok.com/@kemi_kouture1" className="text-gray-400 hover:text-brand-pink">
+                    <FaTiktok size={24} />
+                  </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
 

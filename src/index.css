@@ -1,6 +1,44 @@
 @import "tailwindcss";
 
-/*** TYPOS  
-1. 🛍️Handpicked thrift &new fashion 📍World wide delivery +2349016736464 to order
-2. 
+@theme {
+  --color-brand-pink: #f472b6; /* pink-400 */
+  --color-brand-pink-light: #fbcfe8; /* pink-200 */
+  --color-brand-pink-dark: #db2777; /* pink-600 */
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased selection:bg-brand-pink/30;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-pink to-brand-pink-dark bg-clip-text text-transparent;
+  }
+
+  .nav-link {
+    @apply relative transition-colors duration-300 hover:text-brand-pink;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-brand-pink rounded-full;
+  }
+}
+
+/*** TYPOS & BRANDING 
+1. 🛍️ Handpicked thrift & new fashion 📍 World wide delivery +2349016736464 to order
 ***/
