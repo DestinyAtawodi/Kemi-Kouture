@@ -1,4 +1,4 @@
-import Logo from '../assets/54a9154a-bf29-4985-8a88-b2605e6cb5a6.JPG'
+
 import { FaInstagram, FaTiktok, FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 
@@ -13,7 +13,8 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="flex flex-col items-center md:items-start">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
-              <img src={Logo} className="h-14 w-14 rounded-full border-2 border-brand-pink/30 group-hover:border-brand-pink transition-all duration-300" alt="Kemi Kouture Logo" />
+              <img src="https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/54a9154a-bf29-4985-8a88-b2605e6cb5a6" 
+               className="h-14 w-14 rounded-full border-2 border-brand-pink/30 group-hover:border-brand-pink transition-all duration-300" alt="Kemi Kouture Logo" />
               <span className="text-2xl font-black tracking-tighter">
                 KEMI <span className="text-brand-pink">KOUTURE</span>
               </span>

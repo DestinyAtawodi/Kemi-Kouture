@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react'
 import { FaBars, FaTimes, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-import Logo from '../assets/54a9154a-bf29-4985-8a88-b2605e6cb5a6.JPG'
+
 import { Link, useLocation } from 'react-router-dom';
 
 const Nav = () => {
@@ -53,7 +53,7 @@ const Nav = () => {
         
         <Link to="/" className="flex items-center gap-3 group">
           <img 
-            src={Logo} 
+            src="https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/54a9154a-bf29-4985-8a88-b2605e6cb5a6" 
             className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-brand-pink/20 group-hover:border-brand-pink transition-colors duration-300" 
             alt="Kemi Kouture Logo"
           />
@@ -124,7 +124,8 @@ const Nav = () => {
               </button>
 
               <div className="mb-12">
-                <img src={Logo} className="h-16 w-16 rounded-full mb-4 mx-auto" alt="Logo" />
+                <img src="https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/54a9154a-bf29-4985-8a88-b2605e6cb5a6" 
+                 className="h-16 w-16 rounded-full mb-4 mx-auto" alt="Logo" />
                 <h2 className="text-2xl font-bold text-center text-gray-800">
                   KEMI <span className="text-brand-pink">KOUTURE</span>
                 </h2>

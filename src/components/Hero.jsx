@@ -1,4 +1,4 @@
-import HeroImage from '../assets/pink-podium-with-gift-box-shopping-trolley-product-sale-banner-presentation-3d-background.png'
+
 import { motion } from 'motion/react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -56,7 +56,7 @@ const Hero = () => {
         >
           <div className="relative z-10">
              <img 
-              src={HeroImage} 
+              src="https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/pink-podium-with-gift-box-shopping-trolley-product-sale-banner-presentation-3d-background"
               alt="Premium Thrift Showcase" 
               className="w-full h-auto drop-shadow-[0_35px_35px_rgba(244,114,182,0.3)] hover:scale-105 transition-transform duration-700"
             />
