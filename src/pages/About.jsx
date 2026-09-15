@@ -1,5 +1,4 @@
 import Nav from '../components/Nav'
-import CEOImg from '../assets/a2e4a3de-18bc-41df-81d0-913c6744b716.png'
 import Footer from '../components/Footer'
 import { FaAddressCard, FaBullseye } from 'react-icons/fa'
 import { motion } from 'motion/react'
@@ -23,7 +22,7 @@ const About = () => {
               <div className="relative group">
                 <div className="absolute inset-0 bg-brand-pink/20 rounded-2xl transform rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
                 <img 
-                  src={CEOImg} 
+                  src="https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/a2e4a3de-18bc-41df-81d0-913c6744b716" 
                   alt="Kemi Kouture CEO" 
                   className="relative z-10 w-full h-auto rounded-2xl shadow-2xl object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500" 
                 />

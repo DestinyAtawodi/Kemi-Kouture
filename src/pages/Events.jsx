@@ -1,17 +1,13 @@
 import Nav from '../components/Nav'
-import event1 from '../assets/IMG_5596.jpeg'
-import event2 from '../assets/PHOTO-2026-04-23-13-43-35.jpeg'
-import event3 from '../assets/temp_image_F7AD0CFB-0AC8-4F63-8E89-9EB8324B9260.WEBP'
-import event4 from '../assets/v14044g50000d7edio7og65ospbg79ag.MP4'
 import Footer from '../components/Footer'
 import { motion } from 'motion/react'
 
 const Events = () => {
   const events = [
-    { id: 1, type: 'image', src: event1, title: 'Campus Showcase' },
-    { id: 2, type: 'image', src: event2, title: 'Fashion Pop-up' },
-    { id: 3, type: 'image', src: event3, title: 'Thrift Festival' },
-    { id: 4, type: 'video', src: event4, title: 'Behind the Scenes' },
+    { id: 1, type: 'image', src: "https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/IMG_5596", title: 'Campus Showcase' },
+    { id: 2, type: 'image', src: "https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/PHOTO-2026-04-23-13-43-35", title: 'Fashion Pop-up' },
+    { id: 3, type: 'image', src: "https://res.cloudinary.com/kzekjix6/image/upload/f_auto,q_auto/temp_image_F7AD0CFB-0AC8-4F63-8E89-9EB8324B9260", title: 'Thrift Festival' },
+    { id: 4, type: 'video', src: "https://res.cloudinary.com/kzekjix6/video/upload/v1789496966/v14044g50000d7edio7og65ospbg79ag.mp4", title: 'Behind the Scenes' },
   ]
 
   return (

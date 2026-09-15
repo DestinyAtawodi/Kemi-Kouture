@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import ContactImg from '../assets/full-shot-woman-wearing-full-pink-outfit.jpeg'
 import { motion } from 'motion/react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -114,7 +113,7 @@ const Contact = () => {
           className="hidden md:block w-1/2 h-[calc(100vh-4rem)] sticky top-16"
         >
           <img 
-            src={ContactImg} 
+            src="https://res.cloudinary.com/kzekjix6/image/upload/v1789497305/full-shot-woman-wearing-full-pink-outfit.jpg" 
             alt="Woman in Pink Outfit" 
             className="w-full h-full object-cover" 
           />
